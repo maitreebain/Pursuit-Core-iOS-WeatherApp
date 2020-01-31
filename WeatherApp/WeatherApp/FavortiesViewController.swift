@@ -1,5 +1,5 @@
 //
-//  WeatherViewController.swift
+//  FavortiesViewController.swift
 //  WeatherApp
 //
 //  Created by Maitree Bain on 1/31/20.
@@ -8,12 +8,15 @@
 
 import UIKit
 
-class WeatherViewController: UITabBarController {
+class FavortiesViewController: UIViewController {
 
+    
+    //view has collection view
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        view.backgroundColor = .red
     }
+    
 
 }
