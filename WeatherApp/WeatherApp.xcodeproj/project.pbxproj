@@ -102,6 +102,7 @@
 				548CE051234D33B500B5177D /* AppDelegate.swift */,
 				548CE053234D33B500B5177D /* SceneDelegate.swift */,
 				548CE065234D33E600B5177D /* ZipCodeHelper.swift */,
+				80FEDE0D23E4DE900052002C /* API Clients */,
 				809CAFDE23E4CE2500731C27 /* Views+xibs */,
 				809CAFDB23E4CDC000731C27 /* View Controllers */,
 				548CE05C234D33B600B5177D /* LaunchScreen.storyboard */,
@@ -135,7 +136,6 @@
 				548CE055234D33B500B5177D /* CityWeatherController.swift */,
 				809CAFC723E4C3C900731C27 /* WeatherDetailViewController.swift */,
 				809CAFC523E4BE7600731C27 /* FavortiesViewController.swift */,
-				80FEDE0D23E4DE900052002C /* API Clients */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
