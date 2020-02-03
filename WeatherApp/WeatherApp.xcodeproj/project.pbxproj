@@ -22,6 +22,7 @@
 		809CAFD423E4CCEC00731C27 /* WeatherAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809CAFD323E4CCEC00731C27 /* WeatherAppTests.swift */; };
 		809CAFE323E4CED400731C27 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809CAFE223E4CED400731C27 /* WeatherModel.swift */; };
 		809CAFE523E4CEDE00731C27 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809CAFE423E4CEDE00731C27 /* ImageModel.swift */; };
+		80AD296C23E8E5DC006AFF0E /* WeatherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80AD296B23E8E5DC006AFF0E /* WeatherCell.xib */; };
 		80FEDE0F23E4DEA70052002C /* WeatherDataAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FEDE0E23E4DEA70052002C /* WeatherDataAPIClient.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		809CAFD523E4CCEC00731C27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		809CAFE223E4CED400731C27 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		809CAFE423E4CEDE00731C27 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
+		80AD296B23E8E5DC006AFF0E /* WeatherCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherCell.xib; sourceTree = "<group>"; };
 		80FEDE0E23E4DEA70052002C /* WeatherDataAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataAPIClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				809CAFCB23E4C48700731C27 /* CityWeatherView.swift */,
+				80AD296B23E8E5DC006AFF0E /* WeatherCell.xib */,
 			);
 			path = "Views+xibs";
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 			files = (
 				548CE05E234D33B600B5177D /* LaunchScreen.storyboard in Resources */,
 				548CE068234D340700B5177D /* Assets.xcassets in Resources */,
+				80AD296C23E8E5DC006AFF0E /* WeatherCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

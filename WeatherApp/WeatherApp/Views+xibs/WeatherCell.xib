@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="WYb-SN-bbZ">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="220"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="oQ5-zw-apM">
+                <rect key="frame" x="0.0" y="0.0" width="200" height="220"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gA5-1a-dh1">
+                        <rect key="frame" x="8" y="37" width="184" height="110"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBa-G3-Aiu">
+                        <rect key="frame" x="20" y="8" width="160" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cYd-d3-2No">
+                        <rect key="frame" x="20" y="155" width="160" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bl6-q3-1lM">
+                        <rect key="frame" x="20" y="184" width="160" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="cYd-d3-2No" firstAttribute="top" secondItem="gA5-1a-dh1" secondAttribute="bottom" constant="8" id="2dH-wB-Jzi"/>
+                    <constraint firstAttribute="trailing" secondItem="gA5-1a-dh1" secondAttribute="trailing" constant="8" id="5VJ-I8-LCh"/>
+                    <constraint firstAttribute="trailing" secondItem="GBa-G3-Aiu" secondAttribute="trailing" constant="20" id="6z1-jn-bKJ"/>
+                    <constraint firstItem="gA5-1a-dh1" firstAttribute="height" secondItem="oQ5-zw-apM" secondAttribute="height" multiplier="0.5" id="IMz-QN-ofE"/>
+                    <constraint firstItem="cYd-d3-2No" firstAttribute="leading" secondItem="oQ5-zw-apM" secondAttribute="leading" constant="20" id="Icx-gE-xpv"/>
+                    <constraint firstItem="bl6-q3-1lM" firstAttribute="top" secondItem="cYd-d3-2No" secondAttribute="bottom" constant="8" id="Kq4-EI-tev"/>
+                    <constraint firstAttribute="trailing" secondItem="bl6-q3-1lM" secondAttribute="trailing" constant="20" id="WF8-AD-NUN"/>
+                    <constraint firstItem="GBa-G3-Aiu" firstAttribute="top" secondItem="oQ5-zw-apM" secondAttribute="top" constant="8" id="YKF-pQ-wbR"/>
+                    <constraint firstItem="gA5-1a-dh1" firstAttribute="top" secondItem="GBa-G3-Aiu" secondAttribute="bottom" constant="8" id="aN2-7m-gTn"/>
+                    <constraint firstItem="GBa-G3-Aiu" firstAttribute="leading" secondItem="oQ5-zw-apM" secondAttribute="leading" constant="20" id="dXg-LE-JoI"/>
+                    <constraint firstItem="bl6-q3-1lM" firstAttribute="leading" secondItem="oQ5-zw-apM" secondAttribute="leading" constant="20" id="e9d-9d-rDX"/>
+                    <constraint firstAttribute="trailing" secondItem="cYd-d3-2No" secondAttribute="trailing" constant="20" id="zEm-38-WHt"/>
+                    <constraint firstItem="gA5-1a-dh1" firstAttribute="leading" secondItem="oQ5-zw-apM" secondAttribute="leading" constant="8" id="zMx-7G-61k"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="220" height="212"/>
+            <point key="canvasLocation" x="418.84057971014494" y="75"/>
+        </collectionViewCell>
+    </objects>
+</document>

@@ -16,12 +16,30 @@ class CityWeatherController: UIViewController {
         view = cityWeatherView
     }
     
+    var weather = [WeatherData]() {
+        didSet {
+            self.cityWeatherView.collectionView.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .green
+        cityWeatherView.zipTextField.delegate = self
+    }
+    
+    func loadData() {
+        
+        
+        
     }
 
 
+}
+
+extension CityWeatherController: UITextFieldDelegate {
+    
+    
 }
 

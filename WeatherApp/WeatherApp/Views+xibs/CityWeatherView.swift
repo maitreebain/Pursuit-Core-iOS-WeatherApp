@@ -22,7 +22,13 @@ class CityWeatherView: UIView {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        cv.backgroundColor = .red
         return cv
+    }()
+    
+    public lazy var zipTextField: UITextField = {
+        let textfield = UITextField()
+        return textfield
     }()
     
     override init(frame: CGRect) {
@@ -40,6 +46,7 @@ class CityWeatherView: UIView {
     private func commonInit() {
         
         setUpCityLabelConstraints()
+        setUpCollectionViewConstraints()
     }
     
     private func setUpCityLabelConstraints() {
@@ -61,7 +68,9 @@ class CityWeatherView: UIView {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-//            collectionView.topAnchor.const
+            collectionView.topAnchor.constraint(equalTo: cityLabel.bottomAnchor, constant: 40),
+            collectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: -20),
+            collectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 20)
         ])
     }
 
