@@ -22,6 +22,7 @@
 		809CAFD423E4CCEC00731C27 /* WeatherAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809CAFD323E4CCEC00731C27 /* WeatherAppTests.swift */; };
 		809CAFE323E4CED400731C27 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809CAFE223E4CED400731C27 /* WeatherModel.swift */; };
 		809CAFE523E4CEDE00731C27 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809CAFE423E4CEDE00731C27 /* ImageModel.swift */; };
+		809E70C223EA0D8000DD7C15 /* ImagesAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809E70C123EA0D8000DD7C15 /* ImagesAPIClient.swift */; };
 		80AD296C23E8E5DC006AFF0E /* WeatherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80AD296B23E8E5DC006AFF0E /* WeatherCell.xib */; };
 		80FEDE0F23E4DEA70052002C /* WeatherDataAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FEDE0E23E4DEA70052002C /* WeatherDataAPIClient.swift */; };
 /* End PBXBuildFile section */
@@ -55,6 +56,7 @@
 		809CAFD523E4CCEC00731C27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		809CAFE223E4CED400731C27 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		809CAFE423E4CEDE00731C27 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
+		809E70C123EA0D8000DD7C15 /* ImagesAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesAPIClient.swift; sourceTree = "<group>"; };
 		80AD296B23E8E5DC006AFF0E /* WeatherCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherCell.xib; sourceTree = "<group>"; };
 		80FEDE0E23E4DEA70052002C /* WeatherDataAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataAPIClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -164,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				80FEDE0E23E4DEA70052002C /* WeatherDataAPIClient.swift */,
+				809E70C123EA0D8000DD7C15 /* ImagesAPIClient.swift */,
 			);
 			path = "API Clients";
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				548CE052234D33B500B5177D /* AppDelegate.swift in Sources */,
 				548CE054234D33B500B5177D /* SceneDelegate.swift in Sources */,
 				809CAFE323E4CED400731C27 /* WeatherModel.swift in Sources */,
+				809E70C223EA0D8000DD7C15 /* ImagesAPIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

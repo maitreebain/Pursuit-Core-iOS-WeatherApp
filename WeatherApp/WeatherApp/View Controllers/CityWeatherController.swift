@@ -29,8 +29,12 @@ class CityWeatherController: UIViewController {
         cityWeatherView.zipTextField.delegate = self
     }
     
-    func loadData() {
+    func loadWeatherData() {
         
+        
+    }
+    
+    func loadImages() {
         
     }
 
