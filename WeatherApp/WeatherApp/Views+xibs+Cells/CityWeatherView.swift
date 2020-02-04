@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CityWeatherView: UIView {
+class   CityWeatherView: UIView {
     
     public lazy var cityLabel: UILabel = {
         let city = UILabel()
@@ -81,7 +81,8 @@ class CityWeatherView: UIView {
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: cityLabel.bottomAnchor, constant: 40),
             collectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            collectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20)
+            collectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            collectionView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.4)
         ])
     }
     

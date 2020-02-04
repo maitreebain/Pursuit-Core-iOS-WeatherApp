@@ -48,13 +48,12 @@ class CityWeatherController: UIViewController {
     
     func loadData(lat: Double, long: Double) {
         WeatherDataAPIClient.getWeather(lat, long) { (result) in
-            
             switch result {
             case .failure(let appError):
                 print("data error: \(appError)")
             case .success(let weatherData):
                 self.weather = weatherData.daily.data
-                
+                dump(weatherData)
             }
         }
     }
@@ -67,6 +66,7 @@ class CityWeatherController: UIViewController {
                 print("fetching error: \(fetchingError)")
             case .success(let coords):
                 self.loadData(lat: coords.lat, long: coords.long)
+                print(coords.placeName)
                 DispatchQueue.main.async {
                     self.cityWeatherView.cityLabel.text = coords.placeName
                     self.loadImages(forName: coords.placeName)
