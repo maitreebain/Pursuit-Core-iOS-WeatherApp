@@ -32,7 +32,6 @@ class CityWeatherController: UIViewController {
     func loadData() {
         
         
-        
     }
 
 

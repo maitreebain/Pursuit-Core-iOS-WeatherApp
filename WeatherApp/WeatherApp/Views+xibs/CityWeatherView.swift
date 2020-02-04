@@ -26,8 +26,16 @@ class CityWeatherView: UIView {
         return cv
     }()
     
+    public lazy var zipPrompt: UILabel = {
+        let label = UILabel()
+        label.text = "Enter Zipcode below:"
+        label.textAlignment = .center
+        return label
+    }()
+    
     public lazy var zipTextField: UITextField = {
         let textfield = UITextField()
+        textfield.backgroundColor = .red
         return textfield
     }()
     
@@ -47,6 +55,8 @@ class CityWeatherView: UIView {
         
         setUpCityLabelConstraints()
         setUpCollectionViewConstraints()
+        setUpZipLabelConstraints()
+        setUpZipcodeTextConstraints()
     }
     
     private func setUpCityLabelConstraints() {
@@ -69,9 +79,35 @@ class CityWeatherView: UIView {
         
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: cityLabel.bottomAnchor, constant: 40),
-            collectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: -20),
-            collectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 20)
+            collectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            collectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20)
         ])
+    }
+    
+    private func setUpZipLabelConstraints() {
+        addSubview(zipPrompt)
+        
+        zipPrompt.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+        zipPrompt.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 20),
+        zipPrompt.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            zipPrompt.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20)
+        ])
+        
+    }
+    
+    private func setUpZipcodeTextConstraints() {
+        addSubview(zipTextField)
+        
+        zipTextField.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+        zipTextField.topAnchor.constraint(equalTo: zipPrompt.bottomAnchor, constant: 20),
+            zipTextField.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 100),
+            zipTextField.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -100)
+        ])
+        
     }
 
 }
