@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import DataPersistence
 
 class FavortiesViewController: UIViewController {
 
+    var dataPersistence: DataPersistence<PictureData>!
     
     //view has collection view
     override func viewDidLoad() {

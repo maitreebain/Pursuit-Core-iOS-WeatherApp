@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import DataPersistence
 
 class CityWeatherController: UIViewController {
 
     var cityWeatherView = CityWeatherView()
+    
+    var dataPersistence: DataPersistence<PictureData>!
     
     override func loadView() {
         view = cityWeatherView
@@ -18,24 +21,29 @@ class CityWeatherController: UIViewController {
     
     var weather = [ForecastData]() {
         didSet {
-            self.cityWeatherView.collectionView.reloadData()
+            DispatchQueue.main.async {
+                self.cityWeatherView.collectionView.reloadData()
+            }
         }
     }
     
-    var zipCode: String? {
+    var zipCode = String() {
         didSet {
-            loadLocation(zipcode: zipCode ?? "10023")
+            loadLocation(zipcode: zipCode)
         }
     }
     
-    var image = [PictureData]()
+    var image = [Image]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .green
         cityWeatherView.zipTextField.delegate = self
-        
+        cityWeatherView.collectionView.delegate = self
+        cityWeatherView.collectionView.dataSource = self
+        cityWeatherView.collectionView.register(UINib(nibName: "WeatherCell", bundle: nil), forCellWithReuseIdentifier: "weatherCell")
+        loadLocation(zipcode: "10023")
     }
     
     func loadData(lat: Double, long: Double) {
@@ -52,7 +60,7 @@ class CityWeatherController: UIViewController {
     }
     
     func loadLocation(zipcode: String) {
-        ZipCodeHelper.getLatLong(fromZipCode: zipcode) { (result) in
+        ZipCodeHelper.getLatLongName(fromZipCode: zipcode) { (result) in
             
             switch result {
             case .failure(let fetchingError):
@@ -81,10 +89,44 @@ class CityWeatherController: UIViewController {
 
 }
 
+extension CityWeatherController: UICollectionViewDelegateFlowLayout{
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let interItemSpacing: CGFloat = 4
+        let maxWidth = UIScreen.main.bounds.size.width
+        let numberOfItems: CGFloat = 2
+        let totalSpacing: CGFloat = numberOfItems * interItemSpacing
+        let itemWidth: CGFloat = (maxWidth - totalSpacing) / numberOfItems
+        
+        return CGSize(width: itemWidth, height: itemWidth)
+    }
+    
+}
+
+extension CityWeatherController: UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return weather.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "weatherCell", for: indexPath) as? WeatherCell else {
+            fatalError("could not downcast to WeatherCell")
+        }
+        let selectedCell = weather[indexPath.row]
+        
+        cell.configureCell(for: selectedCell)
+        
+        return cell
+        
+    }
+    
+    
+}
+
 extension CityWeatherController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        zipCode = textField.text
+        zipCode = textField.text ?? "10023"
         return true
     }
 }

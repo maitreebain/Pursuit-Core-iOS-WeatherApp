@@ -8,27 +8,27 @@
 
 import Foundation
 
-struct WeatherData: Decodable {
-    let latitude: Double
-    let longitude: Double
+struct WeatherData : Codable {
+    var latitude: Double
+    var longitude: Double
     let timezone: String
     let daily: Daily
 }
-
-struct Daily: Decodable {
+struct Daily: Codable {
     let summary: String
-    let icon: String
     let data: [ForecastData]
 }
-
-struct ForecastData: Decodable {
-    let time: Int
-    let summary: String
+struct ForecastData: Codable {
+    let summary: String?
+    let time: Double
     let icon: String
-    let sunrise: Int
-    let sunset: Int
-    let percipType: String
+    let sunriseTime: Double
+    let sunsetTime: Double
+    let precipProbability: Double
+    let precipType: String?
     let temperatureHigh: Double
     let temperatureLow: Double
     let windSpeed: Double
 }
+
+

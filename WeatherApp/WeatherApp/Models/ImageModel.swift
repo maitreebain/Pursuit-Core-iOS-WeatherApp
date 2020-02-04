@@ -8,6 +8,11 @@
 
 import Foundation
 
-struct PictureData: Decodable {
+struct PictureData: Codable & Equatable {
+    let hits: [Image]
+}
+
+struct Image: Codable & Equatable {
     let largeImageURL: String
 }
+
