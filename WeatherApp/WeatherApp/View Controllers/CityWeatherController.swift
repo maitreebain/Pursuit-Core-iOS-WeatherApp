@@ -13,7 +13,7 @@ class CityWeatherController: UIViewController {
 
     var cityWeatherView = CityWeatherView()
     
-    var dataPersistence: DataPersistence<PictureData>!
+    var dataPersistence: DataPersistence<Image>!
     
     override func loadView() {
         view = cityWeatherView
@@ -40,7 +40,7 @@ class CityWeatherController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .green
+        view.backgroundColor = .darkGray
         cityWeatherView.zipTextField.delegate = self
         cityWeatherView.collectionView.delegate = self
         cityWeatherView.collectionView.dataSource = self

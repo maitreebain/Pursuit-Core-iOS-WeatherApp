@@ -10,6 +10,10 @@ import UIKit
 import DataPersistence
 import ImageKit
 
+protocol ImageAppended: AnyObject {
+    func newImageAdded(_ image: Image)
+}
+
 class WeatherDetailViewController: UIViewController {
     
     private let detailCityView = DetailWeatherView()
@@ -17,7 +21,9 @@ class WeatherDetailViewController: UIViewController {
     public var weather: ForecastData?
     public var image: Image?
     
-    var dataPersistence: DataPersistence<PictureData>!
+    weak var delegate: ImageAppended?
+    
+    var dataPersistence: DataPersistence<Image>!
     
     override func loadView() {
         view = detailCityView
@@ -27,6 +33,7 @@ class WeatherDetailViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         updateUI()
+        configureNavBarItem()
     }
     
     private func updateUI() {
@@ -58,7 +65,21 @@ class WeatherDetailViewController: UIViewController {
     }
     
     private func configureNavBarItem() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "heart.circle"), style: .plain, target: self, action: #selector(navButtonAction))
+    }
+    
+    @objc private func navButtonAction(_ sender: UIBarButtonItem) {
+        sender.image = UIImage(systemName: "heart.circle.fill")
+        sender.isEnabled = false
         
+        do{
+            if let imageInfo = image{
+                try dataPersistence.createItem(imageInfo)
+                delegate?.newImageAdded(imageInfo)
+            }
+        } catch {
+            print("could not save image")
+        }
     }
 
 }

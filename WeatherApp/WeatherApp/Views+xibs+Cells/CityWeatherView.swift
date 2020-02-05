@@ -22,7 +22,7 @@ class   CityWeatherView: UIView {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-        cv.backgroundColor = .red
+        cv.backgroundColor = .clear
         return cv
     }()
     
