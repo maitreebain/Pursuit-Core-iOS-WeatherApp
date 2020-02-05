@@ -22,40 +22,47 @@ class DetailWeatherView: UIView {
         return image
     }()
     
-    private lazy var highLabel: UILabel = {
+    public lazy var highLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .blue
         return label
     }()
     
-    private lazy var lowLabel: UILabel = {
+    public lazy var lowLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .blue
         return label
     }()
     
-    private lazy var sunriseLabel: UILabel = {
+    public lazy var sunriseLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .blue
         return label
     }()
     
-    private lazy var sunsetLabel: UILabel = {
+    public lazy var sunsetLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .blue
         return label
     }()
     
-    private lazy var windspeedLabel: UILabel = {
+    public lazy var windspeedLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .blue
         return label
     }()
     
-    private lazy var precipitationLabel: UILabel = {
+    public lazy var precipitationLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .blue
         return label
+    }()
+    
+    public lazy var summaryText: UITextView = {
+        let text = UITextView()
+        text.backgroundColor = .green
+        text.isEditable = false
+        return text
     }()
     
     var labelsArr = [UILabel]()
@@ -86,6 +93,7 @@ class DetailWeatherView: UIView {
         setUpCityLabel()
         setUpCityImageConstrains()
         setUpStackViewConstraints()
+        setUpSummaryConstraints()
     }
     
     private func labelInfo() -> [UILabel] {
@@ -109,7 +117,7 @@ class DetailWeatherView: UIView {
         cityLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            cityLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
+            cityLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 40),
             cityLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
             cityLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20)
         ])
@@ -121,9 +129,9 @@ class DetailWeatherView: UIView {
         cityImage.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            cityImage.topAnchor.constraint(equalTo: cityLabel.bottomAnchor, constant: 40),
+            cityImage.topAnchor.constraint(equalTo: cityLabel.bottomAnchor, constant: 20),
             cityImage.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            cityImage.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 20),
+            cityImage.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
             cityImage.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.4)
         ])
     }
@@ -137,7 +145,20 @@ class DetailWeatherView: UIView {
             stackView.topAnchor.constraint(equalTo: cityImage.bottomAnchor, constant: 40),
             stackView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
             stackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            stackView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.4)
+            stackView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.3)
+        ])
+    }
+    
+    private func setUpSummaryConstraints() {
+        addSubview(summaryText)
+        
+        summaryText.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            summaryText.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 8),
+            summaryText.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            summaryText.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            summaryText.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.2)
         ])
     }
 }
