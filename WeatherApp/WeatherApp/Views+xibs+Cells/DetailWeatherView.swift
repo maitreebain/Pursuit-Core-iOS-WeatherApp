@@ -60,14 +60,15 @@ class DetailWeatherView: UIView {
     
     var labelsArr = [UILabel]()
     
-//    public lazy var stackView: UIStackView = {
-//        let stack = UIStackView(arrangedSubviews: labelInfo()) //function here)
-//        stack.axis = .horizontal
-//        stack.distribution = .fillEqually
-//        stack.alignment = .fill
-//        stack.spacing = 20
-//        return stack
-//    }()
+    public lazy var stackView: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: labelInfo()) //function here)
+        stack.axis = .vertical
+        stack.distribution = .fillEqually
+        stack.alignment = .fill
+        stack.spacing = 8
+        stack.backgroundColor = .lightGray
+        return stack
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
@@ -83,12 +84,25 @@ class DetailWeatherView: UIView {
         //constraints here
         
         setUpCityLabel()
+        setUpCityImageConstrains()
+        setUpStackViewConstraints()
     }
     
-//    private func labelInfo() -> [UILabel] {
-//        
-//        
-//    }
+    private func labelInfo() -> [UILabel] {
+        highLabel.text = "high"
+        lowLabel.text = "low"
+        sunriseLabel.text = "sunrise"
+        sunsetLabel.text = "sunset"
+        windspeedLabel.text = "windspeed"
+        precipitationLabel.text = "precip"
+        labelsArr.append(highLabel)
+        labelsArr.append(lowLabel)
+        labelsArr.append(sunriseLabel)
+        labelsArr.append(sunsetLabel)
+        labelsArr.append(windspeedLabel)
+        labelsArr.append(precipitationLabel)
+        return labelsArr
+    }
     
     private func setUpCityLabel() {
          addSubview(cityLabel)
@@ -110,7 +124,20 @@ class DetailWeatherView: UIView {
             cityImage.topAnchor.constraint(equalTo: cityLabel.bottomAnchor, constant: 40),
             cityImage.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
             cityImage.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 20),
-            cityLabel.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.3)
+            cityImage.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.4)
+        ])
+    }
+    
+    private func setUpStackViewConstraints() {
+        addSubview(stackView)
+        
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: cityImage.bottomAnchor, constant: 40),
+            stackView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            stackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            stackView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.4)
         ])
     }
 }

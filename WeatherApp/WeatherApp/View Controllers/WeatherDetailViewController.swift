@@ -26,13 +26,12 @@ class WeatherDetailViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         updateUI()
-//        view.backgroundColor = .purple
     }
     
     private func updateUI() {
         if let weatherInfo = weather {
             self.weather = weatherInfo
-            detailCityView.cityLabel.text = "\(weatherInfo.time)"
+            detailCityView.cityLabel.text = "\(weatherInfo.time.convertTime())"
         }
     }
 
