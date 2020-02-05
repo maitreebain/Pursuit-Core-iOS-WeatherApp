@@ -27,6 +27,8 @@ class CityWeatherController: UIViewController {
         }
     }
     
+    var placeName = ""
+    
     var zipCode = String() {
         didSet {
             loadLocation(zipcode: zipCode)
@@ -47,46 +49,48 @@ class CityWeatherController: UIViewController {
     }
     
     func loadData(lat: Double, long: Double) {
-        WeatherDataAPIClient.getWeather(lat, long) { (result) in
+        WeatherDataAPIClient.getWeather(lat, long) { [weak self] (result) in
             switch result {
             case .failure(let appError):
                 print("data error: \(appError)")
             case .success(let weatherData):
-                self.weather = weatherData.daily.data
-                dump(weatherData)
+                self?.weather = weatherData.daily.data
             }
         }
     }
     
     func loadLocation(zipcode: String) {
-        ZipCodeHelper.getLatLongName(fromZipCode: zipcode) { (result) in
+        ZipCodeHelper.getLatLongName(fromZipCode: zipcode) { [weak self] (result) in
             
             switch result {
             case .failure(let fetchingError):
                 print("fetching error: \(fetchingError)")
             case .success(let coords):
-                self.loadData(lat: coords.lat, long: coords.long)
+                self?.loadData(lat: coords.lat, long: coords.long)
                 print(coords.placeName)
+                self?.placeName.append(coords.placeName)
                 DispatchQueue.main.async {
-                    self.cityWeatherView.cityLabel.text = coords.placeName
-                    self.loadImages(forName: coords.placeName)
+                    self?.cityWeatherView.cityLabel.text = coords.placeName
+                    self?.loadImages(forName: coords.placeName)
                 }
             }
         }
     }
     
     func loadImages(forName: String) {
-        ImagesAPIClient.fetchImage(for: forName) { (result) in
+        ImagesAPIClient.fetchImage(for: forName) { [weak self] (result) in
             
             switch result{
             case .failure(let appError):
                 print("error getting image: \(appError)")
             case .success(let imageData):
-                self.image = imageData
+                self?.image = imageData
             }
         }
     }
-
+    
+    
+    
 }
 
 extension CityWeatherController: UICollectionViewDelegateFlowLayout{
@@ -118,6 +122,17 @@ extension CityWeatherController: UICollectionViewDataSource{
         
         return cell
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let weatherInfo = weather[indexPath.row]
+        let detailVC = WeatherDetailViewController()
+        detailVC.weather = weatherInfo
+        detailVC.image = image[indexPath.row]
+        detailVC.navigationItem.title = placeName
+        detailVC.dataPersistence = dataPersistence
+        
+        navigationController?.pushViewController(detailVC, animated: true)
     }
     
     

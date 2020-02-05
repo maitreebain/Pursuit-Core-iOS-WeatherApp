@@ -34,7 +34,7 @@ class WeatherTabController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        viewControllers = [cityWeatherController, favoritesController]
+        viewControllers = [UINavigationController(rootViewController: cityWeatherController), favoritesController]
     }
 
 }
