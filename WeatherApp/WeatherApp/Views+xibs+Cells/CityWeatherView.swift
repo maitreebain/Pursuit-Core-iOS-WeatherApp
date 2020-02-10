@@ -36,7 +36,7 @@ class   CityWeatherView: UIView {
     public lazy var zipTextField: UITextField = {
         let textfield = UITextField()
         textfield.backgroundColor = .red
-        textfield.text = "10023"
+        textfield.placeholder = "enter zipcode"
         return textfield
     }()
     

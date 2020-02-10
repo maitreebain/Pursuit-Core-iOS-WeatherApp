@@ -45,7 +45,9 @@ class CityWeatherController: UIViewController {
         cityWeatherView.collectionView.delegate = self
         cityWeatherView.collectionView.dataSource = self
         cityWeatherView.collectionView.register(UINib(nibName: "WeatherCell", bundle: nil), forCellWithReuseIdentifier: "weatherCell")
-        loadLocation(zipcode: "10023")
+        zipCode = UserPreference.shared.getZipcode() ?? "10023"
+        //loadLocation(zipcode: "10023")
+        cityWeatherView.zipTextField.text = zipCode
     }
     
     func loadData(lat: Double, long: Double) {
@@ -142,6 +144,8 @@ extension CityWeatherController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         zipCode = textField.text ?? "10023"
+        UserPreference.shared.updateZipcode(for: zipCode)
+        textField.resignFirstResponder()
         return true
     }
 }
